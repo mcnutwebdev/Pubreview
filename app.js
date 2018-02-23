@@ -33,4 +33,4 @@ app.get("/pubs", function(req, res) {
 
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("Pubreview server listening");
-}); 
+});
