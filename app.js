@@ -1,17 +1,36 @@
-/*  Set up an express app  */
+/*  Set up a second GET route and serve views  */
 
-//  Call the required npm packages
+//  ==============================
+    //  REQUIREMENTS
+//  ==============================
 var express = require("express");
 
-//  Create an instance of express
+//  ==============================
+    //  DECLARATIONS
+//  ==============================
 var app = express();
 
-//  Create an index Route
+//  Set the view-engine. This means we dont have to use the .ejs extension in our routes
+app.set("view engine", "ejs");
+
+//  ==============================
+    //  ROUTES
+//  ==============================
+
+//  Create an index route to serve home.ejs
 app.get("/", function(req, res) {
-    res.send("Testing index route");
+    res.render("home");
 });
 
-//  Set up server to listen
+//  Create a pubs route to serve pubs.ejs
+app.get("/pubs", function(req, res) {
+    res.render("pubs");
+});
+
+//  ==============================
+    //  SERVER
+//  ==============================
+
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("Pubreview server listening");
 }); 
